@@ -1,0 +1,26 @@
+venv/
+# Ignore the virtual environment
+env/
+venv/
+ENV/
+.env/
+.venv/
+
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+
+# Ignore Django migrations
+**/migrations/
+
+# Ignore database files
+*.sqlite3
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore other unnecessary files
+*.log
+*.pot
+*.pyc
+.DS_Store
