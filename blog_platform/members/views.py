@@ -1,8 +1,9 @@
-from django.shortcuts import render
-from django.views import generic
+from django.shortcuts import render, redirect
+from django.views import View, generic
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import PasswordChangeView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
+from django.contrib.auth import logout
 
 from .forms import SignUpForm, EditProfileForm
 
@@ -22,5 +23,8 @@ class UserEditView(generic.UpdateView):
 
     def get_object(self):
         return self.request.user
-
-
+    
+    class UserLogoutView(View):
+        def get(self, request):
+            logout(request)
+            return redirect(reverse_lazy('login'))
